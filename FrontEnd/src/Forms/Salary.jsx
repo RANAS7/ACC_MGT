@@ -24,6 +24,7 @@ const Salary = () => {
     axios
       .get("http://localhost:8080/users")
       .then((response) => {
+        console.log(response.data);
         setUsers(response.data);
       })
       .catch((error) => {

@@ -7,7 +7,7 @@ router.post("/sales", (req, res) => {
   const totalAmount = quantity * price;
 
   const sql =
-    " INSERT INTO sales (`Party_Name`, `Sale_Date`, `Quantity`, `Price`, `Total_Amount`, `Product_ID`) VALUES(?, ? ?, ?, ?, ?)";
+    " INSERT INTO sales (`Party_Name`, `Sale_Date`, `Quantity`, `Price`, `Total_Amount`, `Product_ID`) VALUES(?, ?, ?, ?, ?, ?)";
   db.query(
     sql,
     [partyName, date, quantity, price, totalAmount, selectedProduct],
@@ -16,7 +16,7 @@ router.post("/sales", (req, res) => {
         console.error("Error inserting sales details", err);
         return res.status(500).json({ message: "Internal server error" });
       } else {
-        console.log("Salary registered successfully");
+        console.log("Sales registered successfully");
         res.json(result);
       }
     }
